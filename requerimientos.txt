@@ -18,13 +18,12 @@
         . Consultar    (Read)
             . Leer la informacion de una categoria (buscar por ID, nombre, etc.)
         . Editar       (Update)
-        . Eliminar     (Delete)
+ 
 
     4. Necesitamos que el modulo "proveedores", tenga los siguientes requisitos.
         . Crear        (Create)
         . Consultar    (Read)
         . Editar       (Update)
-        . Eliminar     (Delete)
 
 - ENTIDADES Y ATRIBUTOS 
     1. Usuario
