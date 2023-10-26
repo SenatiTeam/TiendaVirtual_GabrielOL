@@ -1,0 +1,64 @@
+###### ======== Sistema de administración web "TIENDA VIRTUAL" ======== ######
+- Descripcion: Venta de zapatos,ropa,gorras, etc.
+
+- Requerimientos de la empresa o de la tienda.
+    1. Necesitamos crear un "usuario" donde tenga roles (cliente, administrador, etc.). a la tienda VIRTUAL
+    2. Necesitamos que el modulo "productos", tenga los siguientes requisitos:
+        . Crear o Agregar      (Create)
+            . Agregar nuevo Producto
+        . Consultar    (Read)
+            . Leer la informacion de un producto (buscar por ID, nombre, etc.)
+        . Editar       (Update)
+            . Actualizar la información de un producto
+        . Eliminar     (Delete)
+            . Eliminar un producto.
+
+    3. Necesitamos que el modulo "categorias de marcas", tenga los siguientes requisitos.
+        . Crear        (Create)
+        . Consultar    (Read)
+            . Leer la informacion de una categoria (buscar por ID, nombre, etc.)
+        . Editar       (Update)
+        . Eliminar     (Delete)
+
+    4. Necesitamos que el modulo "proveedores", tenga los siguientes requisitos.
+        . Crear        (Create)
+        . Consultar    (Read)
+        . Editar       (Update)
+        . Eliminar     (Delete)
+
+- ENTIDADES Y ATRIBUTOS 
+    1. Usuario
+       . id_usuario
+       . name_user
+       . email_user
+       . password_user
+       . roles_user
+       . Fecha&Hora_creacion
+       . Fecha&Hora_ultima_conexion
+    2. Productos
+       . id_producto
+       . nombre_prod
+       . precio_prod
+       . descripcion_prod
+       . idcategoria
+       . idproveedores
+       . Fecha&Hora_creacion
+    3. Categorias
+       . id_categoria
+       . nombre_categ
+       . descripcion_categ
+       . Fecha&Hora_creacion
+    4. Proveedores
+       . id
+       . nombre_empresa
+       . direcion_empresa
+       . informacion_contacto (Números de teléfono, dirección de correo electrónico y otros detalles de contacto)
+       . productos_suministrados
+       . comentarios_notas (Proveedor Confiable, siempre entrega a tiempo)
+       . Fecha&Hora_creacion
+       
+    5. Pedidos
+       . Proximamente....
+Aun hay mas que relacionar, como por ejemplos otra entidad "Pedidos"
+Cardinalidad:
+Las categorías se relacionan con Productos en una relación "uno a muchos" (One-to-Many). Cada categoría puede contener varios productos.
