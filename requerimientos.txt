@@ -34,20 +34,39 @@
        . roles_user
        . Fecha&Hora_creacion
        . Fecha&Hora_ultima_conexion
+
     2. Productos
        . id_producto
        . nombre_prod
        . precio_prod
        . descripcion_prod
+       . stock
        . idcategoria
        . idproveedores
        . Fecha&Hora_creacion
-    3. Categorias
+
+    3. Ventas
+       . id_venta
+       . fecha
+       . cantidad
+       . precio
+       . monto_dado
+       . impuesto
+       . subtotal
+       . total
+       . metodo_pago
+       . id_usuario
+       . id_producto
+       
+    4. Categorias
        . id_categoria
        . nombre_categ
        . descripcion_categ
+       . nombre_marca_prod
+       . descripcion_marca_prod
        . Fecha&Hora_creacion
-    4. Proveedores
+
+    5. Proveedores
        . id
        . nombre_empresa
        . direcion_empresa
@@ -56,8 +75,3 @@
        . comentarios_notas (Proveedor Confiable, siempre entrega a tiempo)
        . Fecha&Hora_creacion
        
-    5. Pedidos
-       . Proximamente....
-Aun hay mas que relacionar, como por ejemplos otra entidad "Pedidos"
-Cardinalidad:
-Las categorías se relacionan con Productos en una relación "uno a muchos" (One-to-Many). Cada categoría puede contener varios productos.
