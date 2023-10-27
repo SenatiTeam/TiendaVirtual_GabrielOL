@@ -38,7 +38,8 @@
     2. Productos
        . id_producto
        . nombre_prod
-       . precio_prod
+       . precio_compra
+       . precio_venta
        . descripcion_prod
        . stock
        . idcategoria
@@ -48,13 +49,12 @@
     3. Ventas
        . id_venta
        . fecha
-       . cantidad
-       . precio
-       . monto_dado
        . impuesto
        . subtotal
        . total
        . metodo_pago
+       . monto_dado
+       . vuelto_dado
        . id_usuario
        . id_producto
        
