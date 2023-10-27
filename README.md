@@ -6,3 +6,4 @@ https://lucid.app/lucidspark/1e3d9eee-7f42-48c0-881a-b21c872bb513/edit?viewport_
 
 <p></p>
 <p> Modelo Relacional (MR) </p>
+https://drive.google.com/file/d/1g6SASbadCfiG_mYOGnRbTm_XJsonVzYN/view
