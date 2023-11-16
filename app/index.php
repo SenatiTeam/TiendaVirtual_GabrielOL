@@ -22,6 +22,7 @@ if (isset($_SESSION['datos'])) {
 </head>
 
 <body>
+ <!-- =========== menu =========== -->
     <div class="container-fluid bg-dark">
         <nav class="navbar navbar-expand-lg bg-dark border-bottom border-body" data-bs-theme="dark">
             <div class="container">
@@ -60,29 +61,42 @@ if (isset($_SESSION['datos'])) {
             </div>
         </nav>
     </div>
- <div class="container my-5">
+
+    <!-- ========= PRINCIPAL ========= -->
+    <div class="container my-5">
         <div class="row">
-            <!--Aqui va ir el formulario-->
-            <div class="col-md-6">
-                <form>
+            <!--Aqui va ir el formulario de registro de usuario-->
+            <div class="col-md-4">
+                <h2 class="text-center">Registrar Usuario</h2>
+                <form action="conexBD_usuarioRegistro.php" method="POST">
                     <div class="mb-3">
-                        <label for="exampleInputEmail1" class="form-label">Correo Electronico</label>
-                        <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
-                        <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+                        <label for="exampleInputNombre" class="form-label fw-semibold">Nombre</label>
+                        <input type="text" name="nombreU" placeholder="Ingrese el nombre del usuario" class="form-control" id="exampleInputNombre" aria-describedby="nombreHelp">
                     </div>
+
                     <div class="mb-3">
-                        <label for="exampleInputPassword1" class="form-label">Contraseña</label>
-                        <input type="password" class="form-control" id="exampleInputPassword1">
+                        <label for="exampleInputEmail1" class="form-label fw-semibold">Correo Electronico</label>
+                        <input type="email" name="emailU" placeholder="Ingrese su correo Electronico" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
                     </div>
-                    <div class="mb-3 form-check">
-                        <input type="checkbox" class="form-check-input" id="exampleCheck1">
-                        <label class="form-check-label" for="exampleCheck1">Check me out</label>
+
+                    <div class="mb-3">
+                        <label for="exampleInputPassword1" class="form-label fw-semibold">Contraseña</label>
+                        <input type="password" name="claveU" placeholder="Ingrese su Contraseña" class="form-control" id="exampleInputPassword1">
                     </div>
-                    <button type="submit" class="btn btn-primary">Submit</button>
+
+                    <div class="mb-3">
+                        <label for="exampleInputRoles" class="form-label fw-semibold">Roles</label>
+                        <select name="rolesU" id="exampleInputRoles" class="form-select" aria-label="Default select example">
+                            <option selected>Selecionar el rol del usuario</option>
+                            <option value="administrador">Administrador</option>
+                            <option value="cliente">Cliente</option>
+                        </select>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Enviar datos</button>
                 </form>
             </div>
-            <!--Aqui va ir las tablas-->
-            <div class="col-md-6">
+            <!--Aqui va ir las tablas de reporte-->
+            <div class="col-md-8 border-start border-5 border-dark">
                 <table class="table">
                     <thead>
                         <tr>
