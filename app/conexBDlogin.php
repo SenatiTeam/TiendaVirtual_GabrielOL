@@ -1,50 +1,28 @@
 <?php
-require_once('conexion.php');
+//Importamos la conexion;
+require_once("conexion.php");
 
-$correo = $_POST['correo'];
-$clave = $_POST['clave'];
+//Variables
+$nombre_usuario = $_POST['nombreU'];
+$correo_usuario = $_POST['emailU'];
+$clave_usuario = $_POST['claveU'];
+$roles_usuario = $_POST['rolesU'];
 
-// echo $correo . " ____ " .$clave;
+/* ==== mensaje ==== */
+//echo $nombre_usuario . "___" . $correo_usuario . "<br>";
+//echo $clave_usuario . "___" . $roles_usuario;
 
-//Consultamos al usuario mediante un "script" a la base de d
-$sql = "SELECT * FROM usuario";
-$resultado = $conexion->query($sql);
+/* ===== Codigo SQL - mediante script ===== */
+$sql = "INSERT INTO usuario(name_user,email_user,password_user,roles_user) VALUES('$nombre_usuario','$correo_usuario','$clave_usuario','$roles_usuario')";
 
-//Esto es una condicional donde nos brida los numeros de mi 
-// if($resultado->num_rows > 0){
-//     echo "Las filas devueltas son " .$resultado->num_rows;
-//     // die();
-// }
-
-
-$ruta = "";
-$encontrados = 0;
-//Consultamos todos los datos y mostramos mediante un ARRAY 
-while($row=$resultado->fetch_array(MYSQLI_ASSOC))
-{
-    // print_r($row);
-    
-    if( ($row['email_user']==$correo) AND ($row['password_user']==$clave)){
-        session_start();
-        $_SESSION['datos']=$row;
-        $encontrados = 1;
-        break;
-    }else{
-        $encontrados = 0;
-    }
+$resultado = $conexion->query($sql) or die($conexion->connect_error);
+if ($resultado) {
+    echo "Registro insertado exitosamente.";
+} else {
+    echo "Error: " . $conexion->error;
 }
-######
-/* Hacemos una condicional preguntando si "encontrados" es 1
-nos vuelva a pedir nuestro usuario o clave */
 
-if($encontrados == 1) {
-    $ruta = 'Location: index.php';
-    header($ruta);
-    exit();
-}else{
-    $ruta = 'Location: login.php ';
-    header($ruta);
-    exit();
-}
+//Cerramos la conexion, siempre utilizamos esto cada vez que usamos un registro
+$conexion->close();
 
 ?>
