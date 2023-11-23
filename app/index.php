@@ -16,13 +16,13 @@ if (isset($_SESSION['datos'])) {
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Tienda Virtual - Gabriel OL</title>
+    <title>Tienda Virtual - EDGAR ING</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
     <link rel="shortcut icon" href="img/icono-tienda.png" type="image/png">
 </head>
 
 <body>
- <!-- =========== menu =========== -->
+    <!-- =========== menu =========== -->
     <div class="container-fluid bg-dark">
         <nav class="navbar navbar-expand-lg bg-dark border-bottom border-body" data-bs-theme="dark">
             <div class="container">
@@ -97,38 +97,37 @@ if (isset($_SESSION['datos'])) {
             </div>
             <!--Aqui va ir las tablas de reporte-->
             <div class="col-md-8 border-start border-5 border-dark">
-                <table class="table">
-                    <thead>
-                        <tr>
-                            <th scope="col">#</th>
-                            <th scope="col">First</th>
-                            <th scope="col">Last</th>
-                            <th scope="col">Handle</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <th scope="row">1</th>
-                            <td>Mark</td>
-                            <td>Otto</td>
-                            <td>@mdo</td>
-                        </tr>
-                        <tr>
-                            <th scope="row">2</th>
-                            <td>Jacob</td>
-                            <td>Thornton</td>
-                            <td>@fat</td>
-                        </tr>
-                        <tr>
-                            <th scope="row">3</th>
-                            <td colspan="2">Larry the Bird</td>
-                            <td>@twitter</td>
-                        </tr>
-                    </tbody>
-                </table>
+                <?php 
+                 require_once('conexion.php');
+                 $sql = "SELECT * FROM usuario";
+                 $resultado = $conexion->query($sql);
+                 $numeroDeUsuario = $resultado->num_rows; // Consulta la cantidad de datos de la tabla
+                 echo "<h2>Reporte | Número de registro es : ". $numeroDeUsuario  ."</h2>";
+                 echo "<table class='table'>
+                 <thead>
+                 <tr>
+                    <th>#</th>
+                    <th>Nombre</th>
+                    <th>Email</th>
+                    <th>Roles</th>
+                 </tr>
+                 </thead>
+                 <tbody>";
+                 while($datos = $resultado->fetch_array(MYSQLI_ASSOC)){
+                    echo "<tr>";
+                    echo "<td>".$datos['id_usuario']."</td>";
+                    echo "<td>".$datos['name_user']."</td>";
+                    echo "<td>".$datos['email_user']."</td>";
+                    echo "<td>".$datos['roles_user']."</td>";
+                    echo "</tr>";
+                 }
+                echo "<tbody>
+                    </table>";
+                ?>
             </div>
         </div>
     </div>
+
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
 </body>
 
